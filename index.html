@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="Reminisc">
+    <head>
+        <title>Reminisc</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="/assets/reminisc.js"></script>
+        <link rel="stylesheet" href="/assets/styles.css">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body ng-controller="ReminiscCtrl" ng-init="checkLogin()">
+        <h1>REMINISC</h1>
+        <h3>recall your long forgotten memories</h3>
+        <img src="/assets/iceberg.png" width="25%" height="25%"/>
+        <div ng-show="!isLoggedIn">
+            <h2>Log in with Facebook</h2>
+            <a href="/api/auth"><img src="/assets/fb.png"></a>
+        </div>
+        <div ng-show="isLoggedIn">
+            <h2>Connect with your past</h2>
+            <input type="text"/>
+        </div>
+    </body>
+</html>
