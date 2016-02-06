@@ -1,4 +1,5 @@
 var FB = require('fb')
+var tags = require('./tags');
 
 module.exports = function(req) {
     FB.setAccessToken(req.user.token);
@@ -8,5 +9,6 @@ module.exports = function(req) {
             console.log(!res ? 'error occurred' : res.error);
             return;
         }
+        return res.data.map(function(img) {return img.images[0].source});
     });
 }

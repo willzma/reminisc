@@ -1,4 +1,9 @@
+var photos = require('./controllers/photos');
+
 module.exports = function(app, passport) {
+    app.get('/api/getPictures', function(req, res) {
+        res.end(JSON.stringify(photos(req)));
+    });
     app.get('/api/isLoggedIn', function(req, res) {
         res.end(String(req.hasOwnProperty("user")));
     })
