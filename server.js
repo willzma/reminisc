@@ -18,7 +18,11 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(session({ secret: 'lookhowsecretthissecretis' }));
+app.use(session({
+    secret: 'lookhowsecretthissecretis',
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -27,7 +31,7 @@ require('./app/routes.js')(app, passport);
 app.use('/assets', express.static('assets'));
 
 app.get('*', function(req, res) {
-    res.sendfile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port);
