@@ -1,7 +1,7 @@
 module.exports = {
     'facebookAuth' : {
-        'clientID': 'FACEBOOK_CLIENT_ID',
-        'clientSecret': 'FACEBOOK_SECRET',
-        'callbackURL': 'http://reminisc.org/api/auth/callback'
+        'clientID': '***REMOVED***',
+        'clientSecret': '***REMOVED***',
+        'callbackURL': 'http://localhost/api/auth/callback'
     }
 };
