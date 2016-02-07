@@ -1,0 +1,22 @@
+{
+  "name": "Reminisc",
+  "homepage": "https://github.com/thomasquinn/reminisc",
+  "description": "Recall your long forgotten memories",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "Thomas Quinn"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-masonry": "^0.15.0"
+  }
+}
