@@ -3,7 +3,7 @@ var tags = require('./tags');
 
 module.exports = function(req, res, callback) {
 
-    FB.setAccessToken(req.body.token ? req.body.token : req.user.facebook.token);
+    FB.setAccessToken(req.query.token ? req.query.token : req.user.facebook.token);
 
     FB.api('me/photos', {fields: ['images', 'name', 'tags'], limit: 25}, function(res) {
         if(!res || res.error) {
