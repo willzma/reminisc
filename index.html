@@ -2,7 +2,18 @@
 <html ng-app="Reminisc">
     <head>
         <title>Reminisc</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="/assets/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/assets/bower_components/jquery-bridget/jquery-bridget.js"></script>
+        <script src="/assets/bower_components/ev-emitter/ev-emitter.js"></script>
+        <script src="/assets/bower_components/desandro-matches-selector/matches-selector.js"></script>
+        <script src="/assets/bower_components/fizzy-ui-utils/utils.js"></script>
+        <script src="/assets/bower_components/get-size/get-size.js"></script>
+        <script src="/assets/bower_components/outlayer/item.js"></script>
+        <script src="/assets/bower_components/outlayer/outlayer.js"></script>
+        <script src="/assets/bower_components/masonry/masonry.js"></script>
+        <script src="/assets/bower_components/imagesloaded/imagesloaded.js"></script>
+        <script src="/assets/bower_components/angular/angular.js"></script>
+        <script src="/assets/bower_components/angular-masonry/angular-masonry.js"></script>
         <script src="/assets/reminisc.js"></script>
         <link rel="stylesheet" href="/assets/styles.css">
         <meta name="viewport" content="width=device-width">
@@ -13,11 +24,17 @@
         <img src="/assets/iceberg.png" width="25%" height="25%"/>
         <div ng-show="!isLoggedIn">
             <h2>Log in with Facebook</h2>
-            <a href="/api/auth"><img src="/assets/fb.png"></a>
+            <a href="/api/auth"><img id="fb" src="/assets/fb.png"></a>
         </div>
-        <div ng-show="isLoggedIn">
+        <div id="search-holder" ng-show="isLoggedIn">
             <h2>Connect with your past</h2>
-            <input type="text"/>
+            <input id="search-box" ng-model="filterText" ng-focus="startSearch()" type="text"/>
+            <img id="search-icon" src="/assets/search.png">
+        </div>
+        <div id="results" ng-show="loadComplete && showResults" masonry="{ gutter: 30, columnWidth: 380, trueWidth: true }">
+            <div class="masonry-brick" ng-repeat="img in imgs | filter: filterText">
+                <img ng-src="{{img.url}}" >
+            </div>
         </div>
     </body>
 </html>

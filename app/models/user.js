@@ -6,7 +6,8 @@ var userSchema = mongoose.Schema({
         id: String,
         token: String
     },
-    pictures: mongoose.Schema.Types.Mixed
+    last_accessed: {type: Date, default: new Date(2004, 2, 4)},
+    last_request: mongoose.Schema.Types.Mixed
 });
 
 userSchema.methods.validPassword = function(password) {

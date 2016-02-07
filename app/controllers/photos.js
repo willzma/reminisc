@@ -2,9 +2,10 @@ var FB = require('fb')
 var tags = require('./tags');
 
 module.exports = function(req, res, callback) {
-    FB.setAccessToken(req.user.facebook.token);
 
-    FB.api('me/photos', {fields: ['images', 'name', 'tags']}, function(res) {
+    FB.setAccessToken(req.body.token ? req.body.token : req.user.facebook.token);
+
+    FB.api('me/photos', {fields: ['images', 'name', 'tags'], limit: 25}, function(res) {
         if(!res || res.error) {
             console.log(!res ? 'error occurred' : res.error);
             return;
