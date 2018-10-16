@@ -1,5 +1,7 @@
 [HackFSU Submission](http://devpost.com/software/reminisc-815cy7)
 
+ayy booboo
+
 ## Inspiration
 We were initially trying to find practical uses of the Clarifai API, and found that it could be used in conjunction with information found in Facebook photos to easily sort the images. We decided that this was a feature that could greatly improve Facebook's already existing API. By combining these technologies, we were able to create an efficient and effective tool to help users easily locate old pictures and relive good times.
 
